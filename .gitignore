@@ -1,0 +1,13 @@
+# Internal notes and local configuration
+PORTFOLIO_NOTES.md
+.env
+.env.*
+!.env.example
+.vercel/
+.vscode/
+
+# Dependencies, logs, and operating system files
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
