@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Trinh Xuan Dat — Portfolio | Full-Stack &amp; AI Automation (Remote, UTC+7)</title>
+<meta name="description" content="Portfolio of Trinh Xuan Dat: SieuthiMMO (NestJS/Next.js e-commerce with SePay payments and an AI admin agent) and Traffic MAS (vision + multi-agent RL research, Eureka 2026).">
+<style>
+  @page { size: A4 portrait; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0A2540; --navy2: #16324F; --azure: #0369A1; --blue: #0284C7; --ice: #38BDF8;
+    --orange: #EA580C; --orange-d: #C2410C; --orange-l: #FB923C;
+    --ink: #0F172A; --muted: #475569; --line: #CBD5E1; --teal: #0F6B70;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink); line-height: 1.55; font-size: 15px;
+    background-color: #E0F2FE;
+    background-image: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 25%, #7DD3FC 50%, #0284C7 75%, #071E3D 100%);
+    background-attachment: fixed;
+    -webkit-print-color-adjust: exact; print-color-adjust: exact;
+  }
+  body[data-lang="en"] .vi { display: none !important; }
+  body[data-lang="vi"] .en { display: none !important; }
+  a { color: var(--azure); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 22px 18px 40px; }
+
+  /* top bar */
+  .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  .nav { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn, .nav a, .lang button {
+    display: inline-block; font: inherit; font-size: 13px; font-weight: 700; text-decoration: none; cursor: pointer;
+    background: var(--orange); color: #FFFFFF; border: 1px solid var(--orange-d); border-radius: 4px; padding: 6px 12px;
+  }
+  .btn:hover, .nav a:hover, .lang button:hover { background: var(--orange-d); }
+  .lang { display: flex; gap: 6px; }
+  .lang button.on { background: var(--navy); border-color: var(--azure); }
+
+  /* cards */
+  .card { background: #FFFFFF; border: 1.2px solid var(--line); border-radius: 6px; padding: 18px 20px; margin-bottom: 14px; box-shadow: 0 2px 8px rgba(7,30,61,.25); }
+  .hero { border-left: 6px solid var(--orange); display: grid; grid-template-columns: 1.5fr 1fr; gap: 20px; align-items: center; }
+  h1 { font-size: 34px; letter-spacing: .5px; text-transform: uppercase; line-height: 1.1; }
+  .role { color: var(--azure); font-weight: 800; margin: 6px 0 10px; font-size: 16px; }
+  h2 { font-size: 17px; text-transform: uppercase; letter-spacing: .4px; border-bottom: 2px solid var(--orange); padding-bottom: 5px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+  h2 .tag { flex-shrink: 0; }
+  h3 { font-size: 15px; margin: 12px 0 4px; color: var(--navy); }
+  p + p { margin-top: 8px; }
+  .tag, .chip { display: inline-block; font-size: 11.5px; font-weight: 800; letter-spacing: .3px; text-transform: uppercase; padding: 2px 8px; border-radius: 3px; background: var(--orange); color: #FFFFFF; border: 1px solid var(--orange-d); white-space: nowrap; }
+  .chip { background: var(--navy2); border-color: #0F2338; text-transform: none; font-weight: 600; font-size: 12px; margin: 0 4px 5px 0; }
+  .chip.core { background: var(--orange); border-color: var(--orange-d); font-weight: 700; }
+  .ok { background: var(--teal); border-color: #0A4A4E; }
+  .badges { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+
+  .stats { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+  .stat { background: var(--navy2); color: #FFFFFF; border: 1px solid #0F2338; border-radius: 4px; padding: 8px 10px; }
+  .stat b { display: block; font-size: 22px; color: var(--orange-l); line-height: 1.1; }
+  .stat span { font-size: 12px; }
+
+  .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cols3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .mini { border: 1px solid var(--line); border-top: 3px solid var(--blue); border-radius: 4px; padding: 10px 12px; background: #FFFFFF; }
+  .mini h3 { margin-top: 0; }
+  ul.list { list-style: none; }
+  ul.list li { position: relative; padding-left: 14px; margin-bottom: 4px; font-size: 14px; }
+  ul.list li::before { content: "■"; position: absolute; left: 0; top: 4px; font-size: 8px; color: var(--blue); }
+  .metric { color: var(--blue); font-weight: 800; }
+  figure { margin: 10px 0; }
+  figure img, .diagram { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 4px; background: #FFFFFF; }
+  figcaption { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 8px 0; }
+  th { background: var(--navy2); color: #FFFFFF; text-align: left; padding: 6px 8px; }
+  td { border-bottom: 1px solid var(--line); padding: 6px 8px; vertical-align: top; }
+  .note { border: 1px solid var(--azure); border-left: 6px solid var(--azure); background: #FFFFFF; border-radius: 4px; padding: 10px 14px; font-size: 14px; margin-top: 10px; }
+  .note.warn { border-color: var(--orange-d); border-left-color: var(--orange); }
+  .awards td:first-child { width: 90px; }
+  footer { text-align: center; color: #FFFFFF; font-size: 13px; margin-top: 6px; }
+  .poster-row { display: grid; grid-template-columns: 1fr 1.2fr; gap: 16px; align-items: start; }
+
+  @media (max-width: 800px) {
+    .hero, .cols, .cols3, .poster-row { grid-template-columns: 1fr; }
+    h1 { font-size: 26px; }
+  }
+  @media print {
+    body { font-size: 11px; background-attachment: scroll; }
+    .nav, .lang { display: none; }
+    .wrap { padding: 9mm; max-width: none; }
+    .card { box-shadow: none; padding: 11px 14px; margin-bottom: 8px; }
+    .mini, figure, table, .note, tr { break-inside: avoid; }
+    h2 { break-after: avoid; }
+    h1 { font-size: 26px; }
+    .poster-row { grid-template-columns: 0.8fr 1.2fr; }
+    .poster-row figure:first-child img { width: 100%; height: auto; }
+    .pb { break-before: auto; }
+  }
+</style>
+</head>
+<body data-lang="en">
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="nav">
+      <a href="#sieuthimmo"><span class="en">SieuthiMMO</span><span class="vi">SieuthiMMO</span></a>
+      <a href="#trafficmas"><span class="en">Traffic MAS</span><span class="vi">Traffic MAS</span></a>
+      <a href="#skills"><span class="en">Skills</span><span class="vi">Kỹ năng</span></a>
+      <a href="#contact"><span class="en">Contact</span><span class="vi">Liên hệ</span></a>
+    </div>
+    <div class="lang">
+      <button type="button" data-set="en" class="on">EN</button>
+      <button type="button" data-set="vi">VI</button>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="card hero">
+    <div>
+      <h1>Trịnh Xuân Đạt</h1>
+      <div class="role">
+        <span class="en">Full-Stack &amp; AI Automation Engineer (Junior / Intern) · Remote from Vietnam (UTC+7)</span>
+        <span class="vi">Kỹ sư Full-Stack &amp; AI Automation (Junior / Thực tập) · Remote từ Việt Nam (UTC+7)</span>
+      </div>
+      <p class="en">I build AI-assisted products end to end: a payment-integrated e-commerce platform with an AI admin agent, and multi-agent research reported with honest statistics. Final-year IT student at UTH (graduating 05/2027), available for remote work now.</p>
+      <p class="vi">Tôi xây dựng sản phẩm có ứng dụng AI từ đầu đến cuối: nền tảng thương mại điện tử tích hợp thanh toán cùng AI admin agent, và nghiên cứu đa tác tử với số liệu thống kê trung thực. Sinh viên năm cuối CNTT tại UTH (tốt nghiệp 05/2027), sẵn sàng làm remote ngay.</p>
+      <div class="badges">
+        <span class="tag">Remote · UTC+7</span>
+        <span class="tag ok">Available now</span>
+        <span class="tag" style="background:var(--navy);border-color:var(--azure)">Third Prize — National Youth Innovation 2026 (AI)</span>
+      </div>
+      <div class="badges">
+        <a class="btn" href="mailto:dat02102005@gmail.com">dat02102005@gmail.com</a>
+        <a class="btn" href="#sieuthimmo"><span class="en">See projects</span><span class="vi">Xem dự án</span></a>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>26</b><span>Prisma models · 17 migrations</span></div>
+      <div class="stat"><b>22</b><span><span class="en">REST controllers (NestJS)</span><span class="vi">REST controller (NestJS)</span></span></div>
+      <div class="stat"><b>~48k</b><span><span class="en">lines of TypeScript</span><span class="vi">dòng TypeScript</span></span></div>
+      <div class="stat"><b>30</b><span><span class="en">test spec files</span><span class="vi">file test spec</span></span></div>
+      <div class="stat"><b>24</b><span><span class="en">containerised services (Traffic MAS)</span><span class="vi">service container (Traffic MAS)</span></span></div>
+      <div class="stat"><b>5 seeds</b><span><span class="en">95% CI, Student-t</span><span class="vi">CI 95%, Student-t</span></span></div>
+    </div>
+  </section>
+
+  <!-- PROJECT 1 -->
+  <section class="card" id="sieuthimmo">
+    <h2>
+      <span>SieuthiMMO — <span class="en">E-commerce platform with AI admin agent</span><span class="vi">Nền tảng TMĐT với AI admin agent</span></span>
+      <span class="tag">Full-stack · Production</span>
+    </h2>
+    <p class="en">A storefront for digital products and services with wallet, coupons, QR checkout, a customer dashboard, an admin area, realtime support chat, price alerts and AI helpers. Deployed with Docker Compose and Nginx on a Linux VPS. Live: <a href="https://sieuthimmo.tech">sieuthimmo.tech</a>. Source is in a private repository; I can walk through it on a call.</p>
+    <p class="vi">Cửa hàng sản phẩm/dịch vụ số với ví, coupon, thanh toán QR, dashboard khách hàng, khu quản trị, chat hỗ trợ realtime, cảnh báo giá và các tính năng AI. Triển khai bằng Docker Compose và Nginx trên VPS Linux. Trực tuyến: <a href="https://sieuthimmo.tech">sieuthimmo.tech</a>. Mã nguồn nằm trong repo private; tôi có thể trình bày trực tiếp qua cuộc gọi.</p>
+
+    <svg class="diagram" viewBox="0 0 900 270" role="img" aria-label="SieuthiMMO architecture">
+      <defs><marker id="ar" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0A2540"/></marker></defs>
+      <g font-family="Segoe UI, Arial, sans-serif" font-size="13" text-anchor="middle">
+        <rect x="10" y="100" width="100" height="50" rx="5" fill="#FFFFFF" stroke="#0284C7" stroke-width="2"/><text x="60" y="130" fill="#0F172A" font-weight="700">Browser</text>
+        <rect x="150" y="100" width="110" height="50" rx="5" fill="#16324F"/><text x="205" y="130" fill="#FFFFFF" font-weight="700">Nginx · TLS</text>
+        <rect x="310" y="40" width="150" height="50" rx="5" fill="#0A2540"/><text x="385" y="62" fill="#FFFFFF" font-weight="700">Next.js 16 · React 19</text><text x="385" y="80" fill="#38BDF8" font-size="11">SSR · dashboards · admin UI</text>
+        <rect x="310" y="160" width="150" height="60" rx="5" fill="#EA580C"/><text x="385" y="184" fill="#FFFFFF" font-weight="700">NestJS 11 API</text><text x="385" y="202" fill="#FFFFFF" font-size="11">JWT · roles · Socket.IO</text>
+        <rect x="505" y="20" width="170" height="46" rx="5" fill="#FFFFFF" stroke="#0369A1" stroke-width="2"/><text x="590" y="48" fill="#0F172A" font-weight="700">PostgreSQL 16 · Prisma</text>
+        <rect x="505" y="80" width="170" height="40" rx="5" fill="#FFFFFF" stroke="#0369A1" stroke-width="2"/><text x="590" y="105" fill="#0F172A" font-weight="700">Redis 7</text>
+        <rect x="505" y="140" width="170" height="40" rx="5" fill="#16324F"/><text x="590" y="165" fill="#FFFFFF" font-weight="700">SePay · VietQR</text>
+        <rect x="505" y="196" width="170" height="40" rx="5" fill="#16324F"/><text x="590" y="221" fill="#FFFFFF" font-weight="700">LLM provider</text>
+        <rect x="725" y="196" width="165" height="40" rx="5" fill="#FFFFFF" stroke="#EA580C" stroke-width="2"/><text x="807" y="221" fill="#0F172A" font-weight="700">Admin approval step</text>
+        <rect x="725" y="140" width="165" height="40" rx="5" fill="#FFFFFF" stroke="#0369A1" stroke-width="2"/><text x="807" y="165" fill="#0F172A" font-weight="700">Bank → webhook / sync</text>
+      </g>
+      <g stroke="#0A2540" stroke-width="2" fill="none" marker-end="url(#ar)">
+        <path d="M110,125 L148,125"/><path d="M260,115 L308,70"/><path d="M260,135 L308,185"/>
+        <path d="M460,185 L503,45"/><path d="M460,190 L503,100"/><path d="M460,200 L503,160"/><path d="M460,210 L503,216"/>
+        <path d="M723,160 L677,160"/><path d="M723,216 L677,216"/>
+      </g>
+    </svg>
+
+    <div class="cols3" style="margin-top:12px">
+      <div class="mini">
+        <h3><span class="en">Payments that credit themselves</span><span class="vi">Thanh toán tự ghi nhận</span></h3>
+        <ul class="list">
+          <li><span class="en">VietQR checkout; incoming bank transfers are matched via SePay webhook/sync and update the order automatically.</span><span class="vi">Checkout VietQR; giao dịch chuyển khoản được đối soát qua SePay webhook/sync và tự cập nhật đơn hàng.</span></li>
+          <li><span class="en">Unique <code>txHash</code> constraint on transactions blocks double-crediting at the database level.</span><span class="vi">Ràng buộc unique <code>txHash</code> ở tầng database chống cộng tiền trùng.</span></li>
+          <li><span class="en">Purchase runs in one DB transaction: balance check, deduction, stock marking, order creation.</span><span class="vi">Mua hàng chạy trong một DB transaction: kiểm tra số dư, trừ tiền, đánh dấu tồn kho, tạo đơn.</span></li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3><span class="en">AI agent with human approval</span><span class="vi">AI agent có bước duyệt của người</span></h3>
+        <ul class="list">
+          <li><span class="en">The admin AI never writes directly: it creates a <b>proposal</b> with reason, confidence, risk level and a snapshot of the previous state.</span><span class="vi">AI admin không ghi trực tiếp: tạo <b>proposal</b> kèm lý do, độ tin cậy, mức rủi ro và snapshot trạng thái cũ.</span></li>
+          <li><span class="en">Only allow-listed fields can change; proposals expire after 1 hour and carry a target version; actions land in an audit log.</span><span class="vi">Chỉ các trường trong allow-list được sửa; proposal hết hạn sau 1 giờ, gắn version đích; hành động được ghi audit log.</span></li>
+          <li><span class="en">LLM replies are validated: upstream error phrases rejected, JSON extracted from mixed text, otherwise a typed error.</span><span class="vi">Phản hồi LLM được kiểm tra: loại câu báo lỗi của upstream, tách JSON từ văn bản lẫn, nếu không hợp lệ trả lỗi có kiểu.</span></li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3><span class="en">Operations &amp; quality</span><span class="vi">Vận hành &amp; chất lượng</span></h3>
+        <ul class="list">
+          <li><span class="en">JWT with refresh sessions, Google OAuth, 2FA, role guards, request logging, timeouts.</span><span class="vi">JWT kèm refresh session, Google OAuth, 2FA, phân quyền, request logging, timeout.</span></li>
+          <li><span class="en">Realtime support chat (Socket.IO) with tickets; semantic product search with keyword fallback if the LLM fails.</span><span class="vi">Chat hỗ trợ realtime (Socket.IO) kèm ticket; tìm kiếm ngữ nghĩa có fallback từ khóa khi LLM lỗi.</span></li>
+          <li><span class="en">Docs: ADRs, runbook, git workflow, coding convention, release checklist, testing strategy; backup/restore and deploy scripts.</span><span class="vi">Tài liệu: ADR, runbook, git workflow, coding convention, release checklist, chiến lược test; script backup/restore và deploy.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="margin-top:10px">
+      <span class="chip core">NestJS 11</span><span class="chip core">Next.js 16</span><span class="chip core">TypeScript</span><span class="chip core">PostgreSQL + Prisma</span>
+      <span class="chip">React 19</span><span class="chip">Tailwind 4</span><span class="chip">Redis</span><span class="chip">Socket.IO</span><span class="chip">Docker Compose</span><span class="chip">Nginx</span><span class="chip">Jest</span><span class="chip">Webhooks</span><span class="chip">LLM integration</span>
+    </div>
+    <div class="note warn">
+      <b><span class="en">What I would improve next:</span><span class="vi">Việc tôi sẽ cải thiện tiếp:</span></b>
+      <span class="en">store money as integers/Decimal instead of floats, move secrets fully out of compose files into a secret store, add end-to-end tests for the payment webhook path, and replace the cookie-session AI provider with an official API key flow.</span>
+      <span class="vi">lưu tiền bằng số nguyên/Decimal thay vì float, chuyển hết secret khỏi file compose sang secret store, thêm test end-to-end cho luồng webhook thanh toán, và thay provider AI dùng cookie-session bằng API key chính thức.</span>
+    </div>
+  </section>
+
+  <!-- PROJECT 2 -->
+  <section class="card pb" id="trafficmas">
+    <h2>
+      <span>Traffic MAS — <span class="en">Vision + multi-agent RL for traffic control</span><span class="vi">Thị giác + MARL cho điều phối giao thông</span></span>
+      <span class="tag">Research · Eureka 2026</span>
+    </h2>
+    <p class="en">Team research project at the UTH AI Lab, submitted to the Eureka 2026 student research awards: (1) a camera → Kafka → validation event pipeline for incident detection, and (2) a multi-agent RL study on a SUMO 2×2 grid comparing a gated spatial-communication model (Gated-ST: GRU + GATv2 + gate) against a matched GRU-only control.</p>
+    <p class="vi">Đề tài nhóm tại Phòng AI UTH, nộp giải Sinh viên NCKH Euréka 2026: (1) pipeline sự kiện camera → Kafka → xác thực để phát hiện sự cố, và (2) nghiên cứu MARL trên lưới SUMO 2×2 so sánh mô hình giao tiếp không gian có cổng (Gated-ST: GRU + GATv2 + gate) với đối chứng GRU-only tương ứng.</p>
+
+    <svg class="diagram" viewBox="0 0 900 250" role="img" aria-label="Traffic MAS pipeline">
+      <defs><marker id="ar2" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#0A2540"/></marker></defs>
+      <g font-family="Segoe UI, Arial, sans-serif" font-size="12.5" text-anchor="middle">
+        <rect x="6" y="10" width="888" height="108" rx="6" fill="#FFFFFF" stroke="#EA580C" stroke-width="2" stroke-dasharray="7 5"/>
+        <text x="20" y="30" text-anchor="start" fill="#C2410C" font-weight="800">EVENT PIPELINE (proof of concept)</text>
+        <rect x="20" y="48" width="100" height="52" rx="5" fill="#16324F"/><text x="70" y="72" fill="#FFFFFF" font-weight="700">Cameras</text><text x="70" y="88" fill="#38BDF8" font-size="11">RTSP / video</text>
+        <rect x="160" y="48" width="100" height="52" rx="5" fill="#0A2540"/><text x="210" y="72" fill="#FFFFFF" font-weight="700">Kafka</text><text x="210" y="88" fill="#38BDF8" font-size="11">event bus</text>
+        <rect x="300" y="48" width="130" height="52" rx="5" fill="#EA580C"/><text x="365" y="70" fill="#FFFFFF" font-weight="700">Perception agents</text><text x="365" y="88" fill="#FFFFFF" font-size="11">YOLOv8n · RT-DETR-l</text>
+        <rect x="470" y="48" width="130" height="52" rx="5" fill="#0A2540"/><text x="535" y="70" fill="#FFFFFF" font-weight="700">Temporal validator</text><text x="535" y="88" fill="#38BDF8" font-size="11">Go · 3 s window</text>
+        <rect x="640" y="48" width="110" height="52" rx="5" fill="#16324F"/><text x="695" y="70" fill="#FFFFFF" font-weight="700">Decision mgr</text><text x="695" y="88" fill="#38BDF8" font-size="11">dedupe · severity</text>
+        <rect x="780" y="48" width="104" height="52" rx="5" fill="#0A2540"/><text x="832" y="70" fill="#FFFFFF" font-weight="700">Alerts</text><text x="832" y="88" fill="#38BDF8" font-size="11">+ dashboard</text>
+        <rect x="6" y="150" width="888" height="90" rx="6" fill="#FFFFFF" stroke="#0369A1" stroke-width="2"/>
+        <text x="20" y="170" text-anchor="start" fill="#0369A1" font-weight="800">RESEARCH TRACK (evaluated in simulation)</text>
+        <rect x="300" y="182" width="130" height="46" rx="5" fill="#0A2540"/><text x="365" y="210" fill="#FFFFFF" font-weight="700">SUMO 2×2 grid</text>
+        <rect x="520" y="182" width="220" height="46" rx="5" fill="#EA580C"/><text x="630" y="203" fill="#FFFFFF" font-weight="700">Gated-ST MARL</text><text x="630" y="219" fill="#FFFFFF" font-size="11">GRU + GATv2 + gate vs GRU-only</text>
+      </g>
+      <g stroke="#0A2540" stroke-width="2" fill="none" marker-end="url(#ar2)">
+        <path d="M120,74 L158,74"/><path d="M260,74 L298,74"/><path d="M430,74 L468,74"/><path d="M600,74 L638,74"/><path d="M750,74 L778,74"/>
+        <path d="M432,205 L518,205"/><path d="M518,215 L432,215"/>
+      </g>
+      <path d="M210,100 C210,140 520,130 600,184" stroke="#C2410C" stroke-width="2" stroke-dasharray="6 5" fill="none"/>
+      <text x="765" y="139" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="11.5" fill="#C2410C" font-weight="700">design only: not yet integrated end-to-end</text>
+    </svg>
+
+    <div class="poster-row">
+      <figure>
+        <img src="assets/traffic_mas_poster.jpg" alt="Eureka 2026 poster for Traffic MAS" loading="lazy">
+        <figcaption><span class="en">Eureka 2026 poster (Vietnamese): method, SUMO setup, results with 95% CIs, contributions and scope.</span><span class="vi">Poster Euréka 2026: phương pháp, thiết lập SUMO, kết quả kèm CI 95%, đóng góp và phạm vi.</span></figcaption>
+      </figure>
+      <div>
+        <h3><span class="en">Result I can stand behind: Gated-ST vs GRU-only</span><span class="vi">Kết quả có bằng chứng: Gated-ST so với GRU-only</span></h3>
+        <table>
+          <tr><th><span class="en">Scenario</span><span class="vi">Kịch bản</span></th><th>Δ total queue (Gated − GRU)</th><th>95% CI</th></tr>
+          <tr><td>G1</td><td>+0.3774</td><td>[−0.2206, +0.9753]</td></tr>
+          <tr><td>G2</td><td>+0.0717</td><td>[−0.2992, +0.4426]</td></tr>
+          <tr><td>G3</td><td>−0.0258</td><td>[−0.1272, +0.0756]</td></tr>
+        </table>
+        <p class="en">All three intervals contain 0, so there is <b>not enough statistical evidence</b> that Gated-ST beats the GRU-only control. 5 training seeds, Student-t intervals, matched control to separate environment shift from communication shift. I report this as a null result rather than overselling it.</p>
+        <p class="vi">Cả ba khoảng tin cậy đều chứa 0, nên <b>chưa đủ bằng chứng thống kê</b> để kết luận Gated-ST tốt hơn đối chứng GRU-only. 5 seed huấn luyện, khoảng tin cậy Student-t, đối chứng tương ứng để tách thay đổi môi trường khỏi thay đổi giao tiếp. Tôi báo cáo đây là kết quả không có khác biệt thay vì phóng đại.</p>
+        <figure>
+          <img src="assets/gated_vs_gru_topology.jpg" alt="Gated minus GRU queue difference across topologies with confidence intervals" loading="lazy">
+          <figcaption><span class="en">Δ queue across 2×2, 2×3, 3×3, 4×4 grids with error bars; intervals straddle zero.</span><span class="vi">Δ queue trên lưới 2×2, 2×3, 3×3, 4×4 kèm thanh sai số; các khoảng đều cắt qua 0.</span></figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="cols" style="margin-top:6px">
+      <div class="mini">
+        <h3><span class="en">Engineering, verified</span><span class="vi">Kỹ thuật đã xác minh</span></h3>
+        <ul class="list">
+          <li><span class="en">Measured on CPU: YOLOv8n ≈ <span class="metric">14 FPS</span>, RT-DETR-l ≈ <span class="metric">1 FPS</span>.</span><span class="vi">Đo trên CPU: YOLOv8n ≈ <span class="metric">14 FPS</span>, RT-DETR-l ≈ <span class="metric">1 FPS</span>.</span></li>
+          <li><span class="en">24 services defined in Docker Compose; Kafka and Zookeeper boot verified; Go temporal validator filters events in a 3-second window.</span><span class="vi">24 service định nghĩa trong Docker Compose; đã xác minh Kafka và Zookeeper khởi động; validator Go lọc sự kiện trong cửa sổ 3 giây.</span></li>
+          <li><span class="en">Reproducibility manifest (git commit, seeds 42–46, CI method) and a validation framework with a 19-requirement traceability matrix, informed by FHWA and ISO 34502.</span><span class="vi">Manifest tái lập (git commit, seed 42–46, phương pháp CI) và khung validation với ma trận truy vết 19 yêu cầu, tham chiếu FHWA và ISO 34502.</span></li>
+          <li><span class="en">15 unit tests passing for router, validator, incident store and shared core; 34 scenario tests written.</span><span class="vi">15 unit test đạt cho router, validator, incident store và shared core; đã viết 34 scenario test.</span></li>
+        </ul>
+      </div>
+      <div class="mini">
+        <h3><span class="en">Transparency: scope and limits</span><span class="vi">Minh bạch: phạm vi và giới hạn</span></h3>
+        <ul class="list">
+          <li><span class="en">The camera → Kafka → MARL controller chain is a design; it was not run end to end.</span><span class="vi">Chuỗi camera → Kafka → bộ điều khiển MARL mới ở mức thiết kế, chưa chạy end-to-end.</span></li>
+          <li><span class="en">PS-IPPO vs Max Pressure (queue 10.52 vs 15.97 vehicles, about −34%) is from the submitted report; the raw logs were not retained, so I treat it as historical and plan a re-run.</span><span class="vi">PS-IPPO so với Max Pressure (queue 10,52 so với 15,97 xe, khoảng −34%) lấy từ báo cáo đã nộp; log gốc không còn nên tôi coi là số liệu lịch sử và dự định chạy lại.</span></li>
+          <li><span class="en">Throughput figures (e.g. msg/s) and calibration numbers from mock models were removed from the claims.</span><span class="vi">Các số liệu thông lượng (vd msg/s) và số calibration từ mô hình mock đã được gỡ khỏi phần khẳng định.</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="cols" style="margin-top:10px">
+      <figure>
+        <img src="assets/traffic_mas_dashboard.jpg" alt="Traffic MAS Operations Dashboard" loading="lazy">
+        <figcaption><span class="en">Operations Dashboard: 6 live CCTV camera streams with real-time AI incident detection (YOLOv8n) &amp; interactive HCMC incident map.</span><span class="vi">Bảng điều khiển Vận hành: 6 luồng camera giao thông trực tiếp kèm nhận diện sự cố AI (YOLOv8n) &amp; bản đồ sự cố TP.HCM.</span></figcaption>
+      </figure>
+      <figure>
+        <img src="assets/traffic_mas_digital_twin_3d.jpg" alt="Traffic MAS 3D Digital Twin Simulation" loading="lazy">
+        <figcaption><span class="en">3D Digital Twin: Real-time spatio-temporal intersection simulation with 3D bounding boxes &amp; live queue measurements.</span><span class="vi">Mô hình Digital Twin 3D: Giả lập nút giao không gian - thời gian với bounding box 3D &amp; đo đạc hàng đợi trực tiếp.</span></figcaption>
+      </figure>
+    </div>
+    <div style="margin-top:6px">
+      <span class="chip core">Python</span><span class="chip core">PyTorch</span><span class="chip core">Kafka</span><span class="chip core">Go</span>
+      <span class="chip">YOLOv8</span><span class="chip">RT-DETR</span><span class="chip">GATv2</span><span class="chip">PPO / MARL</span><span class="chip">SUMO</span><span class="chip">Docker Compose</span><span class="chip">Next.js dashboard</span><span class="chip">Prometheus · Grafana · Jaeger</span>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="card" id="skills">
+    <h2><span><span class="en">Skills, tied to the work above</span><span class="vi">Kỹ năng, gắn với công việc ở trên</span></span><span class="tag">Evidence-based</span></h2>
+    <table>
+      <tr><th><span class="en">Area</span><span class="vi">Mảng</span></th><th><span class="en">What I use</span><span class="vi">Công cụ</span></th><th><span class="en">Where you can see it</span><span class="vi">Thể hiện ở đâu</span></th></tr>
+      <tr><td><span class="en">Backend &amp; data</span><span class="vi">Backend &amp; dữ liệu</span></td><td>NestJS, Prisma, PostgreSQL, Redis, REST, Socket.IO</td><td>SieuthiMMO</td></tr>
+      <tr><td>Frontend</td><td>Next.js (App Router), React, Tailwind, Recharts</td><td>SieuthiMMO, Traffic MAS dashboard</td></tr>
+      <tr><td><span class="en">LLM &amp; automation</span><span class="vi">LLM &amp; tự động hóa</span></td><td><span class="en">LLM integration with validated outputs, human-approved agent actions, webhooks, scheduled sync, n8n-workflow-aware tooling</span><span class="vi">Tích hợp LLM có kiểm tra đầu ra, hành động agent cần người duyệt, webhook, đồng bộ theo lịch, công cụ nhận diện workflow n8n</span></td><td>SieuthiMMO</td></tr>
+      <tr><td><span class="en">ML &amp; research</span><span class="vi">ML &amp; nghiên cứu</span></td><td>PyTorch, YOLOv8, RT-DETR, GATv2, PPO, SUMO, Student-t CIs</td><td>Traffic MAS</td></tr>
+      <tr><td>DevOps</td><td>Docker Compose, Nginx, Kafka, Prometheus/Grafana, VPS deploy scripts, backups</td><td>Both</td></tr>
+      <tr><td><span class="en">Ways of working</span><span class="vi">Cách làm việc</span></td><td><span class="en">Written docs, ADRs, runbooks, async communication, reading English technical documents</span><span class="vi">Tài liệu viết, ADR, runbook, giao tiếp bất đồng bộ, đọc tài liệu kỹ thuật tiếng Anh</span></td><td>SieuthiMMO docs</td></tr>
+    </table>
+  </section>
+
+  <!-- AWARDS -->
+  <section class="card">
+    <h2><span><span class="en">Awards</span><span class="vi">Giải thưởng</span></span><span class="tag">2021 – 2026</span></h2>
+    <table class="awards">
+      <tr><td><span class="tag">10/2026</span></td><td><span class="en">Third Prize — National Youth Innovation Competition 2026</span><span class="vi">Giải Ba — Cuộc thi Sáng tạo trẻ quốc gia năm 2026</span></td><td><span class="chip">AI</span></td></tr>
+      <tr><td><span class="tag">11/2024</span></td><td><span class="en">Top 200 Nationwide — Euréka Scientific Research Awards</span><span class="vi">Top 200 Toàn quốc — Giải thưởng SV NCKH Euréka</span></td><td><span class="chip">IT</span></td></tr>
+      <tr><td><span class="tag">09/2024</span></td><td><span class="en">Top 10 Finalists — SSE National Startup Competition</span><span class="vi">Top 10 Đội xuất sắc — Cuộc thi Khởi nghiệp SSE 2024</span></td><td><span class="chip">Tech</span></td></tr>
+      <tr><td><span class="tag">12/2021</span></td><td><span class="en">Third Prize (Provincial) — Youth &amp; Children Innovation Contest</span><span class="vi">Giải Ba cấp Tỉnh — Sáng tạo Thanh thiếu niên, Nhi đồng</span></td><td><span class="chip">Automation</span></td></tr>
+    </table>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="card" id="contact" style="border-left:6px solid var(--orange)">
+    <h2><span><span class="en">Let's talk</span><span class="vi">Liên hệ</span></span><span class="tag ok">Remote · UTC+7</span></h2>
+    <p class="en">Open to remote internships and junior roles in AI automation, LLM-powered products and full-stack development. I work asynchronously, write things down, and can overlap with Asia-Pacific and European hours.</p>
+    <p class="vi">Sẵn sàng cho thực tập và vị trí junior remote về AI automation, sản phẩm dùng LLM và full-stack. Tôi làm việc bất đồng bộ, ghi chép rõ ràng, có thể trùng giờ với châu Á–Thái Bình Dương và châu Âu.</p>
+    <div class="badges">
+      <a class="btn" href="mailto:dat02102005@gmail.com">✉ dat02102005@gmail.com</a>
+      <span class="tag" style="background:var(--navy);border-color:var(--azure)">☎ (+84) 944 550 086</span>
+      <span class="tag" style="background:var(--navy);border-color:var(--azure)">⚲ Ho Chi Minh City</span>
+    </div>
+  </section>
+
+  <footer>© 2026 Trịnh Xuân Đạt · <span class="en">Metrics above come from the project repositories and reports; unverified figures are labelled as such.</span><span class="vi">Số liệu lấy từ repo và báo cáo dự án; số liệu chưa xác minh đều được ghi rõ.</span></footer>
+</div>
+
+<script>
+  (function () {
+    var body = document.body;
+    function set(l) {
+      body.setAttribute('data-lang', l);
+      document.documentElement.lang = l;
+      document.querySelectorAll('.lang button').forEach(function (b) { b.classList.toggle('on', b.getAttribute('data-set') === l); });
+      try { localStorage.setItem('pf-lang', l); } catch (e) {}
+    }
+    document.querySelectorAll('.lang button').forEach(function (b) { b.addEventListener('click', function () { set(b.getAttribute('data-set')); }); });
+    var q = new URLSearchParams(location.search).get('lang');
+    var saved = null; try { saved = localStorage.getItem('pf-lang'); } catch (e) {}
+    set(q || saved || 'en');
+  })();
+</script>
+</body>
+</html>
